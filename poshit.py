@@ -14,7 +14,6 @@ def poshit():
   height = 1
   prevHash = sha256(sha256(os.urandom(1)).digest()).digest()
   merkle = sha256(sha256(os.urandom(1)).digest()).digest()
-  targethex = target.hex()
   timestamp = str(time.time())
   while nonce <= max:
     blockHash = sha256(sha256(nonce.to_bytes(32, "big") + height.to_bytes(4, "big") + target.to_bytes(32, "big") + version.to_bytes(4, "big") + prevHash + merkle + timestamp.encode("utf-8")).digest()).hexdigest()
