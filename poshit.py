@@ -9,6 +9,7 @@ target = (2**224) * ((2**32) - 1) // difficulty
 def poshit():
   max = (2**32) - 1
   nonce = 0
+  extranonce = 0
   
   version = 1
   height = 1
@@ -28,6 +29,8 @@ def poshit():
       print(colored("Block Has Been Mined!", "green", attrs=["bold"]))
       break
     nonce += 1
+    if nonce > max:
+      extranonce += 1
 
 poshit()
   
