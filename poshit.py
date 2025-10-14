@@ -17,7 +17,7 @@ def poshit():
   merkle = sha256(sha256(os.urandom(1)).digest()).digest()
   timestamp = str(time.time())
   while nonce <= max:
-    blockHash = sha256(sha256(nonce.to_bytes(32, "big") + height.to_bytes(4, "big") + target.to_bytes(32, "big") + version.to_bytes(4, "big") + prevHash + merkle + timestamp.encode("utf-8")).digest()).hexdigest()
+    blockHash = sha256(sha256(nonce.to_bytes(32, "big") + height.to_bytes(4, "big") + extranonce.to_bytes(32, "big") + target.to_bytes(32, "big") + version.to_bytes(4, "big") + prevHash + merkle + timestamp.encode("utf-8")).digest()).hexdigest()
     print(colored(f"Mining - Current Hash: {blockHash}", "yellow", attrs=["bold"]))
     if os.path.exists("hashes.txt"):
       with open("hashes.txt", "a") as a:
