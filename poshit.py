@@ -21,10 +21,10 @@ def poshit():
     print(colored(f"Mining - Current Hash: {blockHash}", "yellow", attrs=["bold"]))
     if os.path.exists("hashes.txt"):
       with open("hashes.txt", "a") as a:
-        a.write(blockHash + "," + "\n")
+        a.write(blockHash + "\n")
     else:
       with open("hashes.txt", "w") as w:
-        w.write(blockHash + "," + "\n")
+        w.write(blockHash + "\n")
     if int(blockHash, 16) <= target:
       print(colored("Block Has Been Mined!", "green", attrs=["bold"]))
       break
